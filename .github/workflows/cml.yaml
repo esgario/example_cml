@@ -1,5 +1,8 @@
 name: model-training
-on: [push]
+on:
+  push:
+    branches:
+      - 'training/**'
 jobs:
   run:
     runs-on: ubuntu-latest
