@@ -1,3 +1,5 @@
 setuptools
 sklearn
 matplotlib
+dvc[gdrive]
+tensorflow==2.4.1

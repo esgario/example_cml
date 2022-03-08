@@ -15,8 +15,10 @@ jobs:
           REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pip install -r requirements.txt
-          python train.py
+          dvc pull dataset.dvc
+          python train_cnn.py
 
-          cat metrics.txt >> report.md
-          cml-publish plot.png --md >> report.md
+          cat "## Model results" >> report.md
+          cml-publish loss.png --md >> report.md
+          cml-publish val_accuracy.png --md >> report.md
           cml-send-comment report.md
